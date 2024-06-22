@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віртуальний вчитель нідерландської мови</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+<div id="wrapper">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-text mx-3">Language Tutor</div>
+        </a>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="#dialogs">
+                <i class="fas fa-fw fa-comments"></i>
+                <span>Розмовні діалоги</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#grammar">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Граматичні вправи</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#vocabulary">
+                <i class="fas fa-fw fa-list"></i>
+                <span>Словниковий запас</span></a>
+        </li>
+    </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">User</span>
+                            <i class="fas fa-user-circle fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container-fluid">
+                <div id="dialogs" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Розмовні діалоги</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chat-box" id="chat-box">
+                            <div><strong>Tutor:</strong> Hallo! Hoe gaat het met jou?</div>
+                            <div><strong>You:</strong> Het gaat goed, dank je. En met jou?</div>
+                        </div>
+                        <form id="chat-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="user-input" placeholder="Enter your message">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Відправити</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="grammar" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Граматичні вправи</h6>
+                    </div>
+                    <div class="card-body">
+                        <h4>Пояснення граматичного правила</h4>
+                        <p>Тут буде пояснення граматичного правила.</p>
+                        <h4>Завдання</h4>
+                        <p>Тут буде завдання для перевірки знань.</p>
+                        <button class="btn btn-success">Перевірити</button>
+                    </div>
+                </div>
+
+                <div id="vocabulary" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Словниковий запас</h6>
+                    </div>
+                    <div class="card-body">
+                        <h4>Список слів</h4>
+                        <ul>
+                            <li>Woord 1 - Переклад 1</li>
+                            <li>Woord 2 - Переклад 2</li>
+                            <li>Woord 3 - Переклад 3</li>
+                        </ul>
+                        <form id="vocabulary-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="word-input" placeholder="Enter the translation">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit">Перевірити</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script>
+    $('#chat-form').on('submit', function(e) {
+        e.preventDefault();
+        const userInput = $('#user-input').val();
+        $('#chat-box').append(`<div><strong>You:</strong> ${userInput}</div>`);
+        $('#user-input').val('');
+    });
+
+    $('#vocabulary-form').on('submit', function(e) {
+        e.preventDefault();
+        const wordInput = $('#word-input').val();
+        alert(`Ви ввели: ${wordInput}`);
+        $('#word-input').val('');
+    });
+</script>
+</body>
+</html>
